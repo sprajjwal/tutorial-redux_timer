@@ -11,9 +11,12 @@ class NewTimer extends Component {
   }
 
   render() {
+    
     // Build out a component that takes a name as input and a save button to save the timer
       return (
         <div>
+          <h2>Selected Timer: {this.props.selectedTimer}</h2>
+          <p>Count: {this.props.count}</p>
           <input
             type='text'
             placeholder="New Timer Name"
@@ -31,7 +34,9 @@ class NewTimer extends Component {
 
 // Not needed for this component
 const mapStateToProps = (state) => {
-  return {}
+  const count = state.timers.length
+  const { selectedTimer } = state
+  return { count, selectedTimer }
 }
 
 // Use 'mapDispatchToProps' to connect the 'newTimer' action creator to this component. Here is a stub for the component:
